@@ -1,0 +1,5 @@
+@startuml
+
+Ca -> Cb: David
+
+@enduml
