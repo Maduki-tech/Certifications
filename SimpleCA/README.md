@@ -9,24 +9,30 @@ TODO: Find out more about the Private Key
 
 #### AES Encrytion
 
-### Commands PK
+### Commands PK which is the CA
 
 ```bash
 openssl genpkey -algorithm RSA -out ca.key -aes256
 ```
 
-## CA's Self-signed Certificate
+## Create Certificate Signing Request (CSR)
 
-### Documentation
+### Documentation CSR
 
-- `-x509` Creates a Self-signed Certificate.
-- `-days 3650` The Certificate will be valid for 10 years
-- `-out ca.pem` Saves Certificate as `ca.pem`
-
-### Commands
+### Commands CSR
 
 ```bash
-openssl req -x509 -new -nodes -key ca.key -sha256 -days 3650 -out ca.pem
+openssl req -new -key private.key -out csr.pem
+```
+
+## Create Client Certificate
+
+### Documentation Client Certificate
+
+### Commands Client Certificate
+
+```bash
+openssl req -x509 -days 365 -key private.key -in csr.pem -out client.crt
 ```
 
 ## Certificate fileextenstion
